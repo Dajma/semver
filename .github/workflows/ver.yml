@@ -15,10 +15,10 @@ jobs:
           fetch-depth: 0
       - name: Git Version
         id: semvar
-        uses: paulhatch/semantic-version@v4.0.3
+        uses: paulhatch/semantic-version@v5.0.3
         with:
          format: "${major}.${minor}.${patch}"
          
       - name: Print version 2
         run:
-          echo ${{ steps.semvar2.outputs.version }} ${{ steps.semvar2.outputs.version_tag }} ${{ steps.semvar2.outputs.changed }}
+          echo ${{ steps.semvar.outputs.version }} ${{ steps.semvar.outputs.version_tag }} ${{ steps.semvar.outputs.changed }}
