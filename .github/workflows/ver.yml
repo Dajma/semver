@@ -9,6 +9,11 @@ jobs:
   increase-major-version:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Main Branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - name: Application Version
         id: version
         uses: paulhatch/semantic-version@v5.0.2
