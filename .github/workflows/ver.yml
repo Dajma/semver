@@ -22,5 +22,5 @@ jobs:
       - name: Print version 2
         run: |
           echo ${{ steps.semvar.outputs.version }} ${{ steps.semvar.outputs.version_tag }} ${{ steps.semvar.outputs.changed }}
-          git tag -a ${{ steps.semvar.outputs.version }} -m "tag version ${{ steps.semvar.outputs.version }}"
-          git push origin ${{ steps.semvar.outputs.version }}
+          git tag -f -a ${{ steps.semvar.outputs.version }} -m "tag version ${{ steps.semvar.outputs.version }}"
+          git push -f origin ${{ steps.semvar.outputs.version }}
