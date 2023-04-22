@@ -20,6 +20,8 @@ jobs:
          version_format: "${major}.${minor}.${patch}"
          
       - name: Print version 2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ steps.semvar.outputs.version }} ${{ steps.semvar.outputs.version_tag }} ${{ steps.semvar.outputs.changed }}
           git config --global user.email "${GITHUB_ACTOR}"
