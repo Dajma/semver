@@ -1,9 +1,11 @@
 # example 1: on push to master
 name: Bump version
 on:
-  push:
-    branches:
-      - main
+#   push:
+#     branches:
+#       - main
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-22.04
