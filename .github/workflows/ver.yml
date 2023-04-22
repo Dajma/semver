@@ -17,7 +17,7 @@ jobs:
         id: semvar
         uses: paulhatch/semantic-version@v5.0.3
         with:
-         format: "${major}.${minor}.${patch}"
+         version_format: "${major}.${minor}.${patch}"
          
       - name: Print version 2
         run:
