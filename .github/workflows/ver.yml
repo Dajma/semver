@@ -21,4 +21,4 @@ jobs:
          
       - name: Print version 2
         run:
-          echo ${{ steps.semvar.outputs.version }} ${{ steps.semvar.outputs.version_tag }} ${{ steps.semvar.outputs.changed }}
+          echo ${{ steps.semvar.outputs }}
