@@ -3,7 +3,7 @@ name: Increase Major Version
 on:
   push:
     branches:
-      - main
+      - maine
 
 jobs:
   increase-major-version:
