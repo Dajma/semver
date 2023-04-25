@@ -35,5 +35,5 @@ jobs:
               echo "Updating patch version number"
               sed -i 's/^patch=.*/patch=$((patch+1))/' $VERSION_FILE
               ;;
-          )
+          esac
           cat version.txt
