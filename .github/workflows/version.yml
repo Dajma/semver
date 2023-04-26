@@ -1,0 +1,39 @@
+name: Update Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version type (Major, Minor, or Patch)'
+        required: true
+        default: 'Patch'
+        # We set the default to 'Patch' to avoid the user having to select a version type every time they run the workflow.
+
+jobs:
+  update_version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Update version number
+        run: |
+          VERSION_FILE="version.txt"
+          case "${{ github.event.inputs.version }}" in
+            Major)
+              echo "Updating major version number"
+              sed -i 's/^major=.*/major=$((major+1))/' $VERSION_FILE
+              sed -i 's/^minor=0/minor=1/' $VERSION_FILE
+              sed -i 's/^patch=0/patch=0/' $VERSION_FILE
+              ;;
+            Minor)
+              echo "Updating minor version number"
+              sed -i 's/^minor=.*/minor=$((minor+1))/' $VERSION_FILE
+              sed -i 's/^patch=0/patch=1/' $VERSION_FILE
+              ;;
+            Patch)
+              echo "Updating patch version number"
+              sed -i 's/^patch=.*/patch=$((patch+1))/' $VERSION_FILE
+              ;;
+          esac
+          cat version.txt
