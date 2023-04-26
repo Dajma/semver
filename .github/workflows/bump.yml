@@ -1,5 +1,5 @@
 # example 2: on merge to master
-name: Bump version
+name: Bump version on commit message
 on:
   pull_request:
     types:
